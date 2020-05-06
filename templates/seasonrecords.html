@@ -1,0 +1,155 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Season Records
+{% endblock %}
+
+{% block main %}
+    <div>
+        <h2>Season Records</h2><br>
+            <h3>Team Records</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Record</th>
+                        <th>Quantity</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td>Most Wins</td>
+                            <td>{{ winsort[0]["win"] }}</td>
+                            <td>{{ winsort[0]["year"] }}, {{ winsort[1]["year"] }} </td>
+                        </tr>
+                        <tr>
+                            <td>Most Runs</td>
+                            <td>{{ rsort[0]["SUM(r)"] }}</td>
+                            <td>{{ rsort[0]["year"] }}</td>
+                        </tr>
+                        <tr>
+                            <td>Fewest Runs Allowed</td>
+                            <td>{{ runsort[1]["SUM(rp)"] }}</td>
+                            <td>{{ runsort[1]["year"] }}</td>
+                        </tr>
+                </tbody>
+            </table>
+            <h3>Individual Records</h3><br>
+            <h4>Hitting</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Record</th>
+                        <th>Quantity</th>
+                        <th>Player</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hits</td>
+                        <td>{{ hitsort[0]["h"] }} </td>
+                        <td>{{ hitsort[0]["player"] }} </td>
+                        <td>{{ hitsort[0]["year"] }} </td>
+                    </tr>
+                    <tr>
+                        <td>Doubles</td>
+                        <td>{{ dubsorts[0]["twob"] }}<br>{{ dubsorts[1]["twob"] }}</td>
+                        <td>{{ dubsorts[0]["player"] }}<br>{{ dubsorts[1]["player"] }}</td>
+                        <td>{{ dubsorts[0]["year"] }}<br>{{ dubsorts[1]["year"] }}</td>
+                    </tr>
+                    <tr>
+                        <td>Triples</td>
+                        <td>{{ tripsorts[0]["threeb"] }} </td>
+                        <td>{{ tripsorts[0]["player"] }} </td>
+                        <td>{{ tripsorts[0]["year"] }} </td>
+                    </tr>
+                    <tr>
+                        <td>Home Runs</td>
+                        <td>{{ homesort[0]["hr"] }} </td>
+                        <td>{{ homesort[0]["player"] }} </td>
+                        <td>{{ homesort[0]["year"] }} </td>
+                    </tr>
+                    <tr>
+                        <td>Stolen Bases</td>
+                        <td>{{ sbsort[0]["sb"] }} </td>
+                        <td>{{ sbsort[0]["player"] }} </td>
+                        <td>{{ sbsort[0]["year"] }} </td>
+                    </tr>
+                    <tr>
+                        <td>Runs Scored</td>
+                        <td>{{ runssort[0]["r"] }}<br>{{ runssort[1]["r"] }}</td>
+                        <td>{{ runssort[0]["player"] }}<br>{{ runssort[1]["player"] }}</td>
+                        <td>{{ runssort[0]["year"] }}<br>{{ runssort[1]["year"] }}</td>
+                    </tr>
+                    <tr>
+                        <td>RBI's</td>
+                        <td>{{ rbissort[0]["rbi"] }} </td>
+                        <td>{{ rbissort[0]["player"] }} </td>
+                        <td>{{ rbissort[0]["year"] }} </td>
+                    </tr>
+                    <tr>
+                        <td>Walks</td>
+                        <td>{{ bbssort[0]["bb"] }} </td>
+                        <td>{{ bbssort[0]["player"] }} </td>
+                        <td>{{ bbssort[0]["year"] }} </td>
+                    </tr>
+                    <tr>
+                        <td>Hit by Pitch</td>
+                        <td>{{ hbpssort[0]["hbp"] }} </td>
+                        <td>{{ hbpssort[0]["player"] }} </td>
+                        <td>{{ hbpssort[0]["year"] }} </td>
+                    </tr>
+                    <tr>
+                        <td>Most Strike outs</td>
+                        <td>{{ strikesort[0]["k"] }} </td>
+                        <td>{{ strikesort[0]["player"] }} </td>
+                        <td>{{ strikesort[0]["year"] }} </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h4>Pitching</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Record</th>
+                        <th>Quantity</th>
+                        <th>Player</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     <tr>
+                        <td>Most Wins</td>
+                        <td>{{ pwsort[0]["w"] }} </td>
+                        <td>{{ pwsort[0]["player"] }} </td>
+                        <td>{{ pwsort[0]["year"] }} </td>
+                    </tr>
+                    <tr>
+                        <td>Most Strikeouts</td>
+                        <td>{{ strsort[0]["kp"] }} </td>
+                        <td>{{ strsort[0]["player"] }} </td>
+                        <td>{{ strsort[0]["year"] }} </td>
+                    </tr>
+                    <tr>
+                        <td>Lowest ERA</td>
+                        <td>{{ perasort[1]["era"] }} </td>
+                        <td>{{ perasort[1]["player"] }} </td>
+                        <td>{{ perasort[1]["year"] }} </td>
+                    </tr>
+                    <tr>
+                        <td>Most Shutouts</td>
+                        <td>{{ shutsort[0]["so"] }} </td>
+                        <td>{{ shutsort[0]["player"] }} </td>
+                        <td>{{ shutsort[0]["year"] }} </td>
+                    </tr>
+                    <tr>
+                        <td>Most Innings Pitched</td>
+                        <td>{{ pipsort[0]["ip"] }} </td>
+                        <td>{{ pipsort[0]["player"] }} </td>
+                        <td>{{ pipsort[0]["year"] }} </td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+{% endblock %}

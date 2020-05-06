@@ -1,0 +1,269 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Career Leaders
+{% endblock %}
+
+{% block main %}
+    <div>
+        <h2>Career Leaders</h2>
+            <h3>Hitting Stats</h3>
+            <table class="table table-striped" style="display: inline-table; width: 50%; float: left">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Average</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in avgsort %}
+                        <tr>
+                            <td>{{ x["player"] }}</td>
+                            <td>{{ x["avg"] }} </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <table class="table table-striped" style="display: inline-table; width: 50%; float: left">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Hits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in hsort %}
+                        <tr>
+                            <td>{{ x["player"] }}</td>
+                            <td>{{ x["SUM(h)"] }} </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+                        <table class="table table-striped" style="display: inline-table; width: 50%; float: left">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Doubles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in dsort %}
+                        <tr>
+                            <td>{{ x["player"] }}</td>
+                            <td>{{ x["SUM(twob)"] }} </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+                        <table class="table table-striped" style="display: inline-table; width: 50%; float: left">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Triples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in tsort %}
+                        <tr>
+                            <td>{{ x["player"] }}</td>
+                            <td>{{ x["SUM(threeb)"] }} </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+                        <table class="table table-striped" style="display: inline-table; width: 50%; float: left">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Home Runs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in hrsort %}
+                        <tr>
+                            <td>{{ x["player"] }}</td>
+                            <td>{{ x["SUM(hr)"] }} </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <table class="table table-striped" style="display: inline-table; width: 50%; float: left">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Runs Scored</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in rsort %}
+                        <tr>
+                            <td>{{ x["player"] }}</td>
+                            <td>{{ x["SUM(r)"] }} </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <table class="table table-striped" style="display: inline-table; width: 50%; float: left">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>RBIs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in rbisort %}
+                        <tr>
+                            <td>{{ x["player"] }}</td>
+                            <td>{{ x["SUM(rbi)"] }} </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <table class="table table-striped" style="display: inline-table; width: 50%; float: left">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Walks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in bbsort %}
+                        <tr>
+                            <td>{{ x["player"] }}</td>
+                            <td>{{ x["SUM(bb)"] }} </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <table class="table table-striped" style="display: inline-table; width: 50%; float: left">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Hits by Pitch</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in hbpsort %}
+                        <tr>
+                            <td>{{ x["player"] }}</td>
+                            <td>{{ x["SUM(hbp)"] }} </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <table class="table table-striped" style="display: inline-table; width: 50%; float: left">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Stolen Bases</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in sbsort %}
+                        <tr>
+                            <td>{{ x["player"] }}</td>
+                            <td>{{ x["SUM(sb)"] }} </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <h3>Pitching Stats</h3>
+            <table class="table table-striped" style="display: inline-table; width: 50%; float: left">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Wins</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in wsort %}
+                        <tr>
+                            <td>{{ x["player"] }}</td>
+                            <td>{{ x["SUM(w)"] }} </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <table class="table table-striped" style="display: inline-table; width: 50%; float: left">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Saves</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in ssort %}
+                        <tr>
+                            <td>{{ x["player"] }}</td>
+                            <td>{{ x["SUM(s)"] }} </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <table class="table table-striped" style="display: inline-table; width: 50%; float: left">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>ERA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in erasort %}
+                        <tr>
+                            <td>{{ x["player"] }}</td>
+                            <td>{{ x["era"] }} </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <table class="table table-striped" style="display: inline-table; width: 50%; float: left">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Strikeouts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in kpsort %}
+                        <tr>
+                            <td>{{ x["player"] }}</td>
+                            <td>{{ x["SUM(kp)"] }} </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <table class="table table-striped" style="display: inline-table; width: 50%; float: left">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Shutouts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in sosort %}
+                        <tr>
+                            <td>{{ x["player"] }}</td>
+                            <td>{{ x["SUM(so)"] }} </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <table class="table table-striped" style="display: inline-table; width: 50%; float: left">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Innings Pitched</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in ipsort %}
+                        <tr>
+                            <td>{{ x["player"] }}</td>
+                            <td>{{ x["ip"] }} </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    </div>
+{% endblock %}

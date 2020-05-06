@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Schedule
+{% endblock %}
+
+{% block main %}
+    <h1 style="color: #35586C">Team Schedule</h1><br><br>
+    {% for x in rows %}
+        {% if 'padres @ ' in x['playing'] %}
+            <div class="mt-2 col-md-12" style="background-color: #35586C; color: white; font-size: 30px; display: inline-table; width: 33%; float: center; margin-top: 20px; margin-bottom: 20px">{{ x['date'] }}<br><br>{{ x['time'] }}<br><br>{{ x['playing'] }}<br><br>{{ x['result'] }}<br></div>
+        {% else %}
+            <div class="mt-2 col-md-12" style="background-color: #B0C6CB; color: black; font-size: 30px; display: inline-table; width: 33%; float: center">{{ x['date'] }}<br><br>{{ x['time'] }}<br><br>{{ x['playing'] }}<br><br>{{ x['result'] }}<br></div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

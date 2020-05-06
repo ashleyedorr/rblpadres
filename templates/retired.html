@@ -1,0 +1,19 @@
+ {% extends "layout.html" %}
+
+{% block title %}
+    Retired Numbers
+{% endblock %}
+
+{% block main %}
+    <p style='color:black; font-size: 45px'>Padres' Retired Numbers</p><br><br>
+    {% for x in records %}
+        {% if x['number'] < 10 %}
+            <span style="border-radius:50%; border:none; background-color: #35586C; padding:25px; color:white; font-size:150px">&nbsp;{{ x['number'] }}&nbsp;</span>
+        {% else %}
+            <span style="border-radius:50%; border:none; background-color: #35586C; padding:25px; color:white; font-size:150px">{{ x['number'] }}</span>
+        {% endif %}
+        <p style='color:#35586C; font-size:75px'>{{ x['name'] }}</p>
+        <p style='color:black; font-size: 45px'>Date Dedicated<br>{{ x['date'] }}</p>
+        <p style='color:black; font-size: 20px; white-space: pre-wrap'>{{ x['info'] }}</p><br><br><br>
+    {% endfor %}
+{% endblock %}

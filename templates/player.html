@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Current Player Stats
+{% endblock %}
+
+{% block main %}
+<img src="https://i.ibb.co/SBHh558/CCI12252018-0024.jpg" alt="CCI12252018-0024" border="0" style='width: 50%'><br><br>
+<form action="/player" method="post">
+<select name=currplayers autofocus>
+     <option disabled selected>Select a player</option>
+     {% for row in rows %}
+     <option value="{{ row['name'] }}">
+        {{ row['name'] }}
+     </option>
+     {% endfor %}
+</select><br><br>
+<button class="btn btn-primary" type="submit">Submit</button>
+{% endblock %}

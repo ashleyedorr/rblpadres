@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Year Stats
+{% endblock %}
+
+{% block main %}
+<form action="/year" method="post">
+<select name=years>
+     <option disabled selected>Select a year</option>
+     {% for row in rows %}
+     <option value="{{ row['year'] }}">
+        {{ row['year'] }}
+     </option>
+     {% endfor %}
+</select><br><br>
+<button class="btn btn-primary" type="submit">Submit</button>
+{% endblock %}

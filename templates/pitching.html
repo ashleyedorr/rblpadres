@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Career Pitching Stats
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+    <h3>Career Pitching Stats</h3>
+    <table id='carpitch' class="table table-striped">
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>IP</th>
+                <th>H</th>
+                <th>R</th>
+                <th>ER</th>
+                <th>BB</th>
+                <th>K</th>
+                <th>ERA</th>
+                <th>W</th>
+                <th>L</th>
+                <th>S</th>
+                <th>SO</th>
+            </tr>
+        </thead>
+        <tbody id='body'>
+            {% for row in rowsort %}
+                {% if row["era"] != 'N/A' %}
+                <tr>
+                    <td>{{ row["player"] }}</td>
+                    <td>{{ row["ip"] }}</td>
+                    <td>{{ row["SUM(hp)"] }}</td>
+                    <td>{{ row["SUM(rp)"] }}</td>
+                    <td>{{ row["SUM(er)"] }}</td>
+                    <td>{{ row["SUM(bbp)"] }}</td>
+                    <td>{{ row["kp"] }}</td>
+                    <td>{{ row["era"] }}</td>
+                    <td>{{ row["SUM(w)"] }}</td>
+                    <td>{{ row["SUM(l)"] }}</td>
+                    <td>{{ row["SUM(s)"] }}</td>
+                    <td>{{ row["SUM(so)"] }}</td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+    <table id='totalpitch' class="table table-striped">
+        <tbody>
+            {% for total in totals %}
+            <tr>
+                <th>Totals</th>
+                <th>{{ total["ip"] }}</th>
+                <th>{{ total["SUM(hp)"] }}</th>
+                <th>{{ total["SUM(rp)"] }}</th>
+                <th>{{ total["SUM(er)"] }}</th>
+                <th>{{ total["SUM(bbp)"] }}</th>
+                <th>{{ total["kp"] }}</th>
+                <th>{{ total["era"] }}</th>
+                <th>{{ total["SUM(w)"] }}</th>
+                <th>{{ total["SUM(l)"] }}</th>
+                <th>{{ total["SUM(s)"] }}</th>
+                <th>{{ total["SUM(so)"] }}</th>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td>Opp BA</td>
+                <td>{{ oppsba }}</td>
+            </tr>
+            <tr>
+                <td>WHIP</td>
+                <td>{{ whip }}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    <script type="text/javascript" class="init">
+
+$('th').click(function(){
+    var table = $(this).parents('table').eq(0)
+    var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
+    this.asc = !this.asc
+    if (!this.asc){rows = rows.reverse()}
+    for (var i = 0; i < rows.length; i++){table.append(rows[i])}
+})
+function comparer(index) {
+    return function(a, b) {
+        var valA = getCellValue(a, index), valB = getCellValue(b, index)
+        return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.toString().localeCompare(valB)
+    }
+}
+function getCellValue(row, index){ return $(row).children('td').eq(index).text() }
+</script>
+
+{% endblock %}

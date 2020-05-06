@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Retired Number
+{% endblock %}
+
+{% block main %}
+    <h4>Add new data by entering below:</h4>
+    <form id='retired' name='retired' action="/newretired" method="post">
+        <div class="form-group">
+            <form>
+                <input type="number" name="number" placeholder="Number" autofocus><br><br>
+                <input type="text" name="name" placeholder="Player Name"><br><br>
+                <input type="text" name="date" placeholder="Date Dedicated"><br><br>
+                <textarea style='white-space: pre-wrap' rows="7" cols="30" wrap="soft" name="info" placeholder="Additional Info"></textarea><br><br>
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+        </div>
+    </form>
+{% endblock %}

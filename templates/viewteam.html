@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Team
+{% endblock %}
+
+{% block main %}
+    <h1 style="color: #35586C">Meet the Team</h1><br><br>
+    {% for x in rows %}
+        <div style="color: #35586C; font-size: 30px; display: inline-table; width: 33%; float: center"><img src={{ x['image'] }}><br><br>{{ x['name'] }}<br><br>{{ x['number'] }}<br><br>{{ x['position'] }}<br><br><br><br></div>
+    {% endfor %}
+    <br>
+    <div style="float: left; padding: 5px">
+    <img src="https://i.ibb.co/Lrkh7n6/CCI12252018-0031.jpg" alt="CCI12252018-0031" border="0">
+    <img src="https://i.ibb.co/3cFjVjJ/CCI12252018-0046.jpg" alt="CCI12252018-0046" border="0">
+    <img src="https://i.ibb.co/47sghFK/CCI12252018-0044.jpg" alt="CCI12252018-0044" border="0">
+    <img src="https://i.ibb.co/Lp8gj03/CCI12252018-0043.jpg" alt="CCI12252018-0043" border="0">
+    <img src="https://i.ibb.co/0fgsJJT/CCI12252018-0041.jpg" alt="CCI12252018-0041" border="0">
+    <img src="https://i.ibb.co/hmKXbFf/CCI12252018-0039.jpg" alt="CCI12252018-0039" border="0">
+    <img src="https://i.ibb.co/qCCPCZG/CCI12252018-0038.jpg" alt="CCI12252018-0038" border="0">
+    <img src="https://i.ibb.co/NNXSb20/CCI12252018-0037.jpg" alt="CCI12252018-0037" border="0">
+    <img src="https://i.ibb.co/Lrkh7n6/CCI12252018-0031.jpg" alt="CCI12252018-0031" border="0">
+    <img src="https://i.ibb.co/SNs8gr9/CCI12252018-0050.jpg" alt="CCI12252018-0050" border="0">
+    <img src="https://i.ibb.co/1ZJCTNx/CCI12252018-0003.jpg" alt="CCI12252018-0003" border="0">
+    <img src="https://i.ibb.co/n8k0Knr/CCI12252018-0007.jpg" alt="CCI12252018-0007" border="0">
+    <img src="https://i.ibb.co/dGj0STV/CCI12252018-0005.jpg" alt="CCI12252018-0005" border="0">
+    <img src="https://i.ibb.co/2N1jgPH/CCI12252018.jpg" alt="CCI12252018" border="0">
+    <img src="https://i.ibb.co/T8YF6mB/CCI12252018-0022.jpg" alt="CCI12252018-0022" border="0">
+    <img src="https://i.ibb.co/C2GSMGG/CCI12252018-0021.jpg" alt="CCI12252018-0021" border="0">
+    <img src="https://i.ibb.co/WKxzHsY/CCI12252018-0019.jpg" alt="CCI12252018-0019" border="0">
+    <img src="https://i.ibb.co/Yb92RHH/CCI12252018-0018.jpg" alt="CCI12252018-0018" border="0">
+    <img src="https://i.ibb.co/FnW4gN9/CCI12252018-0016.jpg" alt="CCI12252018-0016" border="0">
+    <img src="https://i.ibb.co/txxm5br/CCI12252018-0014.jpg" alt="CCI12252018-0014" border="0">
+    <img src="https://i.ibb.co/XDKMg6q/CCI12252018-0013.jpg" alt="CCI12252018-0013" border="0">
+    <img src="https://i.ibb.co/rvvrCnt/CCI12252018-0010.jpg" alt="CCI12252018-0010" border="0">
+    <img src="https://i.ibb.co/F76gc7s/Gaupp.jpg" alt="Gaupp" border="0">
+    <img src="https://i.ibb.co/wBQ1kpL/CCI12252018-0027.jpg" alt="CCI12252018-0027" border="0">
+{% endblock %}

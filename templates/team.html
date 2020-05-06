@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Team Stats
+{% endblock %}
+
+{% block main %}
+    <h3>Team Stats</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Year</th>
+                <th>Wins</th>
+                <th>Losses</th>
+                <th>Ties</th>
+                <th>Percent Won</th>
+                <th>Results</th>
+                <th>MVP</th>
+                <th>Batting Champ</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+                <tr>
+                    <td>{{ row["year"] }}</td>
+                    <td>{{ row["win"] }} </td>
+                    <td>{{ row["loss"] }}</td>
+                    <td>{{ row["tie"] }}</td>
+                    <td>{{ row["pct"] }}</td>
+                    <td>{{ row["result"] }}</td>
+                    <td>{{ row["mvp"] }}</td>
+                    <td>{{ row["batchamp"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <img src="https://i.ibb.co/xXP5N19/CCI12252018-0049.jpg" alt="CCI12252018-0049" border="0" style="float: left; padding: 5px; width=200%">
+    <img src="https://i.ibb.co/gRFDM1d/IMG-0140.jpg" alt="IMG-0140" border="0" style="float: left; padding: 5px">
+    <img src="https://i.ibb.co/F76gc7s/Gaupp.jpg" alt="Gaupp" border="0" style="float: left; padding: 5px">
+    <img src="https://i.ibb.co/0fgsJJT/CCI12252018-0041.jpg" alt="CCI12252018-0041" border="0" style="float: left; padding: 5px">
+    <img src="https://i.ibb.co/9bMBX9V/CCI12252018-0034.jpg"  style="float: left; padding: 5px">
+{% endblock %}

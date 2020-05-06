@@ -1,0 +1,145 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Annual Stats
+{% endblock %}
+
+{% block main %}
+    <h3>{{ year }} Hitting Stats</h3>
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>AB</th>
+                <th>R</th>
+                <th>H</th>
+                <th>RBI</th>
+                <th>2B</th>
+                <th>3B</th>
+                <th>HR</th>
+                <th>SAC</th>
+                <th>SB</th>
+                <th>HBP</th>
+                <th>BB</th>
+                <th>K</th>
+                <th>AVG</th>
+                <th>OBP</th>
+                <th>SLG%</th>
+                <th>1B</th>
+                <th>TB</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for x in rows %}
+        {% if x["avg"] != 'N/A' %}
+                <tr>
+                    <td>{{ x["player"] }}</td>
+                    <td>{{ x["ab"] }}</td>
+                    <td>{{ x["r"] }} </td>
+                    <td>{{ x["h"] }}</td>
+                    <td>{{ x["rbi"] }}</td>
+                    <td>{{ x["twob"] }}</td>
+                    <td>{{ x["threeb"] }}</td>
+                    <td>{{ x["hr"] }}</td>
+                    <td>{{ x["sac"] }}</td>
+                    <td>{{ x["sb"] }}</td>
+                    <td>{{ x["hbp"] }} </td>
+                    <td>{{ x["bb"] }}</td>
+                    <td>{{ x["k"] }}</td>
+                    <td>{{ x["avg"] }}</td>
+                    <td>{{ x["obp"] }}</td>
+                    <td>{{ x["slg"] }}</td>
+                    <td>{{ x["oneb"] }}</td>
+                    <td>{{ x["tb"] }}</td>
+                </tr>
+            {% endif %}
+            {% endfor %}
+            {% for total in totals %}
+                <tr>
+                    <th>Totals</th>
+                    <th>{{ total["SUM(ab)"] }}</th>
+                    <th>{{ total["SUM(r)"] }}</th>
+                    <th>{{ total["SUM(h)"] }}</th>
+                    <th>{{ total["SUM(rbi)"] }}</th>
+                    <th>{{ total["SUM(twob)"] }}</th>
+                    <th>{{ total["SUM(threeb)"] }}</th>
+                    <th>{{ total["SUM(hr)"] }}</th>
+                    <th>{{ total["SUM(sac)"] }}</th>
+                    <th>{{ total["SUM(sb)"] }}</th>
+                    <th>{{ total["SUM(hbp)"] }}</th>
+                    <th>{{ total["SUM(bb)"] }}</th>
+                    <th>{{ total["SUM(k)"] }}</th>
+                    <th>{{ total["avg"] }}</th>
+                    <th>{{ total["obp"] }}</th>
+                    <th>{{ total["slg"] }}</th>
+                    <th>{{ total["oneb"] }}</th>
+                    <th>{{ total["tb"] }}</th>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br><br>
+    <h3>{{ year }} Pitching Stats</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>IP</th>
+                <th>H</th>
+                <th>R</th>
+                <th>ER</th>
+                <th>BB</th>
+                <th>K</th>
+                <th>ERA</th>
+                <th>W</th>
+                <th>L</th>
+                <th>S</th>
+                <th>SO</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for erasort in erasorts%}
+                {% if erasort["era"] != 'N/A' %}
+                    <tr>
+                        <td>{{ erasort["player"] }}</td>
+                        <td>{{ erasort["ip"] }}</td>
+                        <td>{{ erasort["hp"] }}</td>
+                        <td>{{ erasort["rp"] }}</td>
+                        <td>{{ erasort["er"] }}</td>
+                        <td>{{ erasort["bbp"] }}</td>
+                        <td>{{ erasort["kp"] }}</td>
+                        <td>{{ erasort["era"] }}</td>
+                        <td>{{ erasort["w"] }}</td>
+                        <td>{{ erasort["l"] }}</td>
+                        <td>{{ erasort["s"] }}</td>
+                        <td>{{ erasort["so"] }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            {% for total in totals %}
+            <tr>
+                <th>Totals</th>
+                <th>{{ total["ip"] }}</th>
+                <th>{{ total["SUM(hp)"] }}</th>
+                <th>{{ total["SUM(rp)"] }}</th>
+                <th>{{ total["SUM(er)"] }}</th>
+                <th>{{ total["SUM(bbp)"] }}</th>
+                <th>{{ total["kp"] }}</th>
+                <th>{{ total["era"] }}</th>
+                <th>{{ total["SUM(w)"] }}</th>
+                <th>{{ total["SUM(l)"] }}</th>
+                <th>{{ total["SUM(s)"] }}</th>
+                <th>{{ total["SUM(so)"] }}</th>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td>Opp BA</td>
+                <td>{{ oppsba }}</td>
+            </tr>
+            <tr>
+                <td>WHIP</td>
+                <td>{{ whip }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
